@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelos
+model User {
+  id                String    @id @default(uuid())
+  name              String
+  cpf               String    @unique
+  phoneNumber       String
+  email             String    @unique
+  hash              String
+  salt              String
+  profilePictureUrl String?
+  address           String?
+
+  // Relações
+  favorites Favorite[]
+  cartItems CartItem[]
+  orders    Order[]
+}
+
+model Product {
+  id            String    @id @default(uuid())
+  name          String
+  photoUrl      String?
+  price         Decimal
+  category      String
+  stockQuantity Int
+  description   String?
+  createdAt     DateTime  @default(now())
+
+  // Relações
+  favoritedBy Favorite[]
+  cartItems   CartItem[]
+  orderItems  OrderItem[]
+}
+
+// Associações
+
+model Favorite {
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  createdAt DateTime @default(now())
+
+  @@id([userId, productId])
+}
+
+model CartItem {
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  quantity  Int
+  addedAt   DateTime @default(now())
+
+  @@id([userId, productId])
+}
+
+model Order {
+  id         String       @id @default(uuid())
+  totalValue Decimal
+  status     OrderStatus  @default(PENDING)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  user   User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+  userId String
+  items  OrderItem[]
+}
+
+model OrderItem {
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId   String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+  productId String
+  quantity  Int
+  unitPrice Decimal
+
+  @@id([orderId, productId])
+}
+
+enum OrderStatus {
+  PENDING
+  ON_THE_WAY
+  DELIVERED
+  CANCELED
+}
