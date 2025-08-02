@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import { createUser, updateUser, userParams } from "../schemas/UserSchemas";
-import { Mailer } from '../services/mailer';
+import { Mailer } from '../config/mailer';
 import auth from "../config/auth";
 
 const prisma = new PrismaClient();
