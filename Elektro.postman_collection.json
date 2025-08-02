@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "e4acd985-213c-424c-9a48-e4a59d130f66",
+		"name": "Elektro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "47015275",
+		"_collection_link": "https://joaombsantos-8183755.postman.co/workspace/Jo%C3%A3o-Marcus-Braga-dos-Santos's-~6ae6de39-2997-425a-88c5-2e14a8c974a1/collection/47015275-e4acd985-213c-424c-9a48-e4a59d130f66?action=share&source=collection_link&creator=47015275"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joao Marcus\",\r\n    \"cpf\": \"20848156730\",\r\n    \"phoneNumber\": \"21999912522\",\r\n    \"password\": \"A1234567b!\",\r\n    \"email\": \"joazinho@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Read User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user/1921c72c-6e56-411a-82ca-5b20afd125fa"
+					},
+					"response": []
+				},
+				{
+					"name": "Read All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joao Marcus\",\r\n    \"cpf\": \"20848156730\",\r\n    \"phoneNumber\": \"21999912522\",\r\n    \"email\": \"joazinho@gmail.com\",\r\n    \"pasword\": \"+1234567!\"\r\n}"
+						},
+						"url": "{{baseURL}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Rua A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user/1921c72c-6e56-411a-82ca-5b20afd125fa"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joao Marcus\",\r\n    \"cpf\": \"20848156730\",\r\n    \"phoneNumber\": \"21999912522\",\r\n    \"email\": \"joazinho@gmail.com\",\r\n    \"pasword\": \"+1234567!\"\r\n}"
+						},
+						"url": "{{baseURL}}/user/1921c72c-6e56-411a-82ca-5b20afd125fa"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Photo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/joaom/OneDrive/Pictures/ed2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/userPhoto/1921c72c-6e56-411a-82ca-5b20afd125fa",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"userPhoto",
+								"1921c72c-6e56-411a-82ca-5b20afd125fa"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/sign-in"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAll Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "{{baseURL}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Photo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/joaom/OneDrive/Pictures/ed2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/productsPhoto/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"productsPhoto",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Get User's Favorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/favorites/user/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Favorite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"{{productId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/favorites/user/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Favorite",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/favorites/user/{{userId}}/product/{{productId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "Gerencia a lista de favoritos de um usuário."
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get User's Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/cart/user/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item to Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"{{productId}}\",\n    \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart/user/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item Quantity",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart/user/{{userId}}/product/{{productId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item from Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/cart/user/{{userId}}/product/{{productId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User's Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/cart/user/{{userId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "Gerencia o carrinho de compras de um usuário."
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseURL}}/orders/user/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/orders/user/{{userId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/orders/{{orderId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "Gerencia os pedidos dos usuários."
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:3333",
+			"type": "default"
+		}
+	]
+}

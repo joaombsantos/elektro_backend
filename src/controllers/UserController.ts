@@ -34,9 +34,7 @@ export class UserController {
         try {
             const { email, password } = request.body;
             if (!email || !password) {
-                return response
-                    .status(400)
-                    .json({ message: "Preencha os campos email e senha." });
+                return response.status(400).json({ message: "Preencha os campos email e senha." });
             }
 
             const user = await prisma.user.findUnique({
