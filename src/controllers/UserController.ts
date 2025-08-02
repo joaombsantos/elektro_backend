@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import { createUser, updateUser, userParams } from "../schemas/UserSchemas";
+import { Mailer } from '../services/mailer';
 import auth from "../config/auth";
 
 const prisma = new PrismaClient();
@@ -23,6 +24,15 @@ export class UserController {
                     salt,
                 },
             });
+
+            try {
+                const emailSubject = "Bem-vindo(a) à Elektro Store!";
+                const emailText = `Olá, ${name}! Sua conta foi criada com sucesso em nossa plataforma. Se não foi você, por favor, entre em contato com nosso suporte.`;
+
+                await Mailer.sendEmail(email, emailSubject, emailText);
+            } catch (emailError) {
+                console.error(`Falha ao enviar e-mail de boas-vindas para ${email}`, emailError);
+            }
 
             response.status(201).json(createdUser);
         } catch (error: any) {
